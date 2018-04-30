@@ -1,7 +1,9 @@
 #ifndef MAIN
 #define MAIN
 
-#define CODE_LEN 64
+#define CODE_LEN_256 256
+#define CODE_LEN_128 128
+#define CODE_LEN_64 64
 #define Success  0
 #define Failed   1
 

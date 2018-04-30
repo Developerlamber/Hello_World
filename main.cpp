@@ -15,7 +15,7 @@ void CountNum::DeleteInfoByName(char *Name)
     oVec = oVecNum.begin();
     for ( ; oVec != oVecNum.end(); oVec++)
     {
-       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN))
+       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN_64))
        {
            oVecNum.erase(oVec);
            cout << "Delete success" << endl;
@@ -27,12 +27,12 @@ void CountNum::DeleteInfoByName(char *Name)
 
 void CountNum::ModifyInfoByName(char *Name)
 {
-    char array[CODE_LEN] = {0};
+    char array[CODE_LEN_64] = {0};
     vector<CountNum>::iterator oVec;
     oVec = oVecNum.begin();
     for ( ; oVec != oVecNum.end(); oVec++)
     {
-       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN))
+       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN_64))
        {
            cout << "Please Modfiy Name:";
            cin >> array;
@@ -52,7 +52,7 @@ void CountNum::PrintSignleInfo(char *Name)
     oVec = oVecNum.begin();
     for ( ; oVec != oVecNum.end(); oVec++)
     {
-       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN))
+       if(0 == strncmp((const char*)Name, (const char*)oVec->GetName(), CODE_LEN_64))
        {
            cout << oVec->GetName() << "---------" << oVec->GetNum() << endl;
        }
@@ -76,7 +76,7 @@ void CountNum::WriteName(char *Name)
         cout << "Name is empty" << endl;
         return;
     }
-    strncpy(this->LinkInfo.PersonName, Name, CODE_LEN);
+    strncpy(this->LinkInfo.PersonName, Name, CODE_LEN_64);
     cout << "Write  Name  End" << endl;
 }
 
@@ -101,10 +101,10 @@ void CountNum::ADD()
     CountNum ContactInfo;
     string Name;
     long   ID;
-    char   Buf[CODE_LEN] = {0};
+    char   Buf[CODE_LEN_64] = {0};
     cout << "ADD NAME:";
     cin >> Name;
-    strncpy(Buf, Name.c_str(), CODE_LEN);
+    strncpy(Buf, Name.c_str(), CODE_LEN_64);
     ContactInfo.WriteName(Buf);
     cout << "ADD ID :";
     cin >> ID;
@@ -117,7 +117,7 @@ void CountNum::DELETE()
 {
     CountNum ContactInfo;
     cout << "Tell me What Name you want to Delete:";
-    char array[CODE_LEN] = {0};
+    char array[CODE_LEN_64] = {0};
     cin >> array;
     ContactInfo.DeleteInfoByName(array);
 }
@@ -126,7 +126,7 @@ void CountNum::MODIFY()
 {
     CountNum ContactInfo;
     cout << "Tell me What Name you want to Modify:";
-    char array[CODE_LEN] = {0};
+    char array[CODE_LEN_64] = {0};
     cin >> array;
     ContactInfo.ModifyInfoByName(array);
 }
@@ -135,7 +135,7 @@ void CountNum::SEARCH()
 {
     CountNum ContactInfo;
     cout << "Tell me What Name you want to Search:";
-    char array[CODE_LEN] = {0};
+    char array[CODE_LEN_64] = {0};
     cin >> array;
     cout << "Search List:" << endl;
     ContactInfo.PrintSignleInfo(array);
