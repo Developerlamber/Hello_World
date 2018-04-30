@@ -10,7 +10,7 @@
 typedef struct PersonInfo
 {
     long  PersonID;
-    char PersonName[CODE_LEN];
+    char PersonName[CODE_LEN_64];
 }stPerson;
 
 class CountNum

@@ -4,6 +4,7 @@
 #include <vector>
 #include <iterator>
 #include "main.h"
+#include "SysLog.h"
 
 using namespace std;
 
@@ -93,7 +94,7 @@ char* CountNum::GetName()
 
 int CountNum::GetNum()
 {
-    return this->LinkInfo.PersonID;
+    return this->LinkInfo.PersonID; 
 }
 
 void CountNum::ADD()
@@ -149,6 +150,10 @@ int main()
     cout << "                   *----------------------*" << endl;
     cout << "                   *Welcome Contact System*" << endl;
     cout << "                   *----------------------*" << endl;
+    char szname[CODE_LEN_64] = {0};
+    strncpy(szname, "programe is begin", CODE_LEN_64); 
+    LogPrint(LOG_ERROR, __FILE__, __LINE__, szname);
+#if 0
     while (1)
     {
         cout << "Please enter your Commond:";
@@ -179,6 +184,6 @@ int main()
             ContactInfo.PrintAllInfo();
         }
     }
+#endif
 }
-
 
