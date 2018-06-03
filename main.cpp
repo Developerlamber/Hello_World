@@ -5,6 +5,7 @@
 #include <iterator>
 #include "main.h"
 #include "SysLog.h"
+#include "SortLib.h"
 
 using namespace std;
 
@@ -145,14 +146,31 @@ void CountNum::SEARCH()
 
 int main()
 {
+    int iRet = 0;
     string Commond;
     CountNum ContactInfo;
-    cout << "                   *----------------------*" << endl;
-    cout << "                   *Welcome Contact System*" << endl;
-    cout << "                   *----------------------*" << endl;
     char szname[CODE_LEN_64] = {0};
-    strncpy(szname, "programe is begin", CODE_LEN_64); 
-    LogPrint(LOG_ERROR, __FILE__, __LINE__, szname);
+    strncpy(szname, "programe is begin", CODE_LEN_64);
+    
+    unsigned long a[10] = {0};
+
+    for (int i = 0; i < 10; ++i)
+    {
+        cin >> a[i];
+    }
+
+    iRet =  __Select_Sort(a, 10);
+    if (0 != iRet)
+    {
+        LogPrint(LOG_ERROR, __FILE__, __LINE__, "Failed to Select Sort");
+        return iRet;
+    }
+
+    for (int i = 0; i < 10; ++i)
+    {
+        cout << a[i] << endl;
+    }
+
 #if 0
     while (1)
     {

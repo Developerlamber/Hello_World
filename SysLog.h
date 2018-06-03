@@ -1,3 +1,6 @@
+#ifndef __SYS_LOG_H_
+#define __SYS_LOG_H_
+
 #include<stdio.h>
 #include<iostream>
 
@@ -41,4 +44,13 @@ void LogPrint(unsigned int ulLoglevel, char *szLogFile, unsigned int ulLogLine, 
 	}
 
 	printf("[%s] ---- [%s:%d] ---- [%s] \n", szLoglevel, szLogFile, ulLogLine, szLogInfo);
+
+	FILE *fp = NULL;
+ 
+	fp = fopen("/tmp/test.txt", "w+");
+	fprintf(fp, "This is testing for fprintf...\n");
+	fclose(fp);
 }
+
+
+#endif
