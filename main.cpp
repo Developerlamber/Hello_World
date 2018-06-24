@@ -147,6 +147,7 @@ void CountNum::SEARCH()
 int main()
 {
     int iRet = 0;
+    int iSize = 0;
     string Commond;
     CountNum ContactInfo;
     char szname[CODE_LEN_64] = {0};
